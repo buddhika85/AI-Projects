@@ -20,20 +20,20 @@ namespace _3_MLP_AutoMobileMileageRegression
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("###################### Step 1 #########################");
-            //Step1();    // shuffle
+            Console.WriteLine("###################### Step 1 #########################");
+            Step1();    // shuffle
 
-            //Console.WriteLine("###################### Step 2 #########################");
-            //Step2();    // segregate
+            Console.WriteLine("###################### Step 2 #########################");
+            Step2();    // segregate
 
-            //Console.WriteLine("###################### Step 3 #########################");
-            //Step3();    // normalise
+            Console.WriteLine("###################### Step 3 #########################");
+            Step3();    // normalise
 
-            //Console.WriteLine("###################### Step 4 #########################");
-            //Step4();    // create network
+            Console.WriteLine("###################### Step 4 #########################");
+            Step4();    // create network
 
-            //Console.WriteLine("###################### Step 5 #########################");
-            //Step5();    // train
+            Console.WriteLine("###################### Step 5 #########################");
+            Step5();    // train
 
             Console.WriteLine("###################### Step 6 #########################");
             Step6();    // evaluate
@@ -102,10 +102,10 @@ namespace _3_MLP_AutoMobileMileageRegression
             //Wizard
             var wizard = new AnalystWizard(analyst);
             wizard.Wizard(Config.BaseFile, true, AnalystFileFormat.DecpntComma);
-            //Cylinders
-            analyst.Script.Normalize.NormalizedFields[0].Action = Encog.Util.Arrayutil.NormalizationAction.Equilateral;
+            //Cylinders  
+            analyst.Script.Normalize.NormalizedFields[0].Action = Encog.Util.Arrayutil.NormalizationAction.Equilateral;     // multivalued discreste field type
             //displacement
-            analyst.Script.Normalize.NormalizedFields[1].Action = Encog.Util.Arrayutil.NormalizationAction.Normalize;
+            analyst.Script.Normalize.NormalizedFields[1].Action = Encog.Util.Arrayutil.NormalizationAction.Normalize;       // continues
             //HorsePower
             analyst.Script.Normalize.NormalizedFields[2].Action = Encog.Util.Arrayutil.NormalizationAction.Normalize;
             //weight
@@ -113,13 +113,13 @@ namespace _3_MLP_AutoMobileMileageRegression
             //Acceleration
             analyst.Script.Normalize.NormalizedFields[4].Action = Encog.Util.Arrayutil.NormalizationAction.Normalize;
             //year
-            analyst.Script.Normalize.NormalizedFields[5].Action = Encog.Util.Arrayutil.NormalizationAction.Equilateral;
+            analyst.Script.Normalize.NormalizedFields[5].Action = Encog.Util.Arrayutil.NormalizationAction.Equilateral;     // multivalued discreste field type
             //Origin
-            analyst.Script.Normalize.NormalizedFields[6].Action = Encog.Util.Arrayutil.NormalizationAction.Equilateral;
+            analyst.Script.Normalize.NormalizedFields[6].Action = Encog.Util.Arrayutil.NormalizationAction.Equilateral;     // multivalued discreste field type
             //Name
-            analyst.Script.Normalize.NormalizedFields[7].Action = Encog.Util.Arrayutil.NormalizationAction.Ignore;
+            analyst.Script.Normalize.NormalizedFields[7].Action = Encog.Util.Arrayutil.NormalizationAction.Ignore;          // will not use
             //mpg
-            analyst.Script.Normalize.NormalizedFields[8].Action = Encog.Util.Arrayutil.NormalizationAction.Normalize;
+            analyst.Script.Normalize.NormalizedFields[8].Action = Encog.Util.Arrayutil.NormalizationAction.Normalize;       // contniues
 
 
 
