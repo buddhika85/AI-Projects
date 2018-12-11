@@ -210,13 +210,21 @@ namespace _4_MLP_WineQuality
                     {
 
                         var normalizedActualoutput = (BasicMLData)network.Compute(item.Input);
-                        var actualoutput = analyst.Script.Normalize.NormalizedFields[11].DeNormalize(normalizedActualoutput.Data[0]);
-                        var idealOutput = analyst.Script.Normalize.NormalizedFields[11].DeNormalize(item.Ideal[0]);
+                        //var actualoutput = analyst.Script.Normalize.NormalizedFields[11].DeNormalize(normalizedActualoutput.Data[0]);
+                        //var idealOutput = analyst.Script.Normalize.NormalizedFields[11].DeNormalize(item.Ideal[0]);
+
+                        int classCount = analyst.Script.Normalize.NormalizedFields[11].Classes.Count;
+                        double normalizationHigh = analyst.Script.Normalize.NormalizedFields[11].NormalizedHigh;
+                        double normalizationLow = analyst.Script.Normalize.NormalizedFields[11].NormalizedLow;
+
+                        var eq = new Encog.MathUtil.Equilateral(classCount, normalizationHigh, normalizationLow);
+                        var predictedClassInt = eq.Decode(normalizedActualoutput);
+                        var idealClassInt = eq.Decode(item.Ideal);
 
                         //Write to File
-                        var resultLine = idealOutput.ToString() + "," + actualoutput.ToString();
+                        var resultLine = idealClassInt.ToString() + "," + predictedClassInt.ToString();
                         file.WriteLine(resultLine);
-                        Console.WriteLine("Ideal : {0}, Actual : {1}", idealOutput, actualoutput);
+                        Console.WriteLine("Ideal : {0}, Actual : {1}", idealClassInt, predictedClassInt);
 
                     }
                 }
