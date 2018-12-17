@@ -6,4 +6,3 @@ D:\PhD\IS - AI - ACBT\EncogCSharpProjects\1_MLP_XOR - Demo\obj\Debug\1_MLP_XOR -
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\1_MLP_XOR - Demo\obj\Debug\1_MLP_XOR - Demo.csproj.CopyComplete
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\1_MLP_XOR - Demo\obj\Debug\1_MLP_XOR - Demo.exe
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\1_MLP_XOR - Demo\obj\Debug\1_MLP_XOR - Demo.pdb
-D:\PhD\IS - AI - ACBT\EncogCSharpProjects\1_MLP_XOR - Demo\obj\Debug\1_MLP_XOR - Demo.csprojAssemblyReference.cache

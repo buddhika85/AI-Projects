@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4>Travelling Sales Man</h4>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+<button id="btnPerformGA">GA</button>
+
+@section scripts {
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+
+
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(populateCityChart);
+
+        $(document).ready(function () {
+            //populateCityChart();
+
+            $('#btnPerformGA').click(performGA);
+        });
+
+        function performGA() {
+            alert("performGA");
+        }
+
+        function populateCityChart()
+        {
+            var data = google.visualization.arrayToDataTable([
+                ['X', 'Y'],
+                ['10',  10],
+                ['20',  20],
+                ['15',  15],
+                ['25',  25]
+            ]);
+
+            var options = {
+                title: 'Company Performance',
+                curveType: 'function',
+                legend: { position: 'bottom' },
+                hAxis: { minValue: 0, maxValue: 256 },
+                vAxis: { minValue: 0, maxValue: 256 },
+                pointSize: 30
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('chartContainer'));
+
+            chart.draw(data, options);
+        }
+
+    </script>
+}

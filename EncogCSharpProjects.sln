@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4_MLP-WineQuality", "4_MLP-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5_GA_TSP", "5_GA_TSP\5_GA_TSP.csproj", "{9D1EA72C-EB68-4B33-A955-F12754A3BC85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6_GA_TSP_WebMVC", "6_GA_TSP_WebMVC\6_GA_TSP_WebMVC.csproj", "{79966080-06F5-4F88-8579-E773D3AF3779}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7_GA_Power unit schedulling", "7_GA_Power unit schedulling\7_GA_Power unit schedulling.csproj", "{07430E55-C7D7-4AE8-BBF4-E6BCA5AC618F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{9D1EA72C-EB68-4B33-A955-F12754A3BC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D1EA72C-EB68-4B33-A955-F12754A3BC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D1EA72C-EB68-4B33-A955-F12754A3BC85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79966080-06F5-4F88-8579-E773D3AF3779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79966080-06F5-4F88-8579-E773D3AF3779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79966080-06F5-4F88-8579-E773D3AF3779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79966080-06F5-4F88-8579-E773D3AF3779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07430E55-C7D7-4AE8-BBF4-E6BCA5AC618F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07430E55-C7D7-4AE8-BBF4-E6BCA5AC618F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07430E55-C7D7-4AE8-BBF4-E6BCA5AC618F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07430E55-C7D7-4AE8-BBF4-E6BCA5AC618F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
