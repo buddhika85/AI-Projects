@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Encog.ML.EA.Population;
+using _7_GA_Power_unit_schedulling.Model;
+using _7_GA_Power_unit_schedulling.ProblemDataRepositories;
 
 namespace _7_GA_Power_unit_schedulling
 {
@@ -23,8 +25,11 @@ namespace _7_GA_Power_unit_schedulling
             DisplayPowerUnitData(powerUnits);
 
             Display("------------ Create Initial Population");
-            BasicPopulation population = powerUnitGALogic.CreateInitialPopulation(populationSize, powerUnits.Count);
-            DisplayPowerUnitData(powerUnits);
+            var population = powerUnitGALogic.CreateInitialPopulation(populationSize, powerUnits.Count);
+
+            // 2 create fitness function
+            Display("\n------------ Create Fitness function - sum of total diatance of cities within the chromosome - distance low --> better chromosome");
+            var tspFitness = new TravellingSalesManFitnessScore(cities);
 
             Console.ReadKey();
         }

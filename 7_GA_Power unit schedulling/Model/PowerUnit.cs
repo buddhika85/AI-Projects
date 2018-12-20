@@ -1,4 +1,4 @@
-﻿namespace _7_GA_Power_unit_schedulling
+﻿namespace _7_GA_Power_unit_schedulling.Model
 {
     public class PowerUnit
     {

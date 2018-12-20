@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Encog.ML.EA.Population;
+using _7_GA_Power_unit_schedulling.Model;
 
-namespace _7_GA_Power_unit_schedulling
+namespace _7_GA_Power_unit_schedulling.ProblemDataRepositories
 {
     public class PowerUnitRepository
     {

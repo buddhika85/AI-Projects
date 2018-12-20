@@ -45,8 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PowerUnit.cs" />
-    <Compile Include="PowerUnitRepository.cs" />
+    <Compile Include="EncogExtensions\EngineArrayExtension.cs" />
+    <Compile Include="EncogExtensions\FourBitChomosomeGenomeFactory.cs" />
+    <Compile Include="EncogExtensions\FourBitCustomGenome.cs" />
+    <Compile Include="EncogExtensions\FourBitGene.cs" />
+    <Compile Include="Model\IntervalsFitnessData.cs" />
+    <Compile Include="Model\PowerUnit.cs" />
+    <Compile Include="PowerUnitGALogic.cs" />
+    <Compile Include="PowerUnitMaintainanceFitnessFunction.cs" />
+    <Compile Include="ProblemDataRepositories\IntervalFitnessDataRepository.cs" />
+    <Compile Include="ProblemDataRepositories\PowerUnitRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -54,5 +62,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
