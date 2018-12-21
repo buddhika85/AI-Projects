@@ -60,11 +60,11 @@ namespace _7_GA_Power_unit_schedulling.ProblemDataRepositories
             MaxCapacity = PowerUnits.Sum(x => x.UnitCapacity);
         }
 
-        public List<PowerUnit> GetAllPowerUnits()
+        public PowerUnit[] GetAllPowerUnits()
         {
             try
             {
-                return PowerUnits;
+                return PowerUnits.ToArray();
             }
             catch (System.Exception ex)
             {

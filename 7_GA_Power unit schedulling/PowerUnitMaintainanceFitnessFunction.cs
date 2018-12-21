@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using _7_GA_Power_unit_schedulling.EncogExtensions;
 using Encog.ML;
+using Encog.ML.Prg.Train;
 using Encog.Neural.Networks.Training;
 using _7_GA_Power_unit_schedulling.Model;
 
@@ -27,29 +29,58 @@ namespace _7_GA_Power_unit_schedulling
         /// <returns></returns>
         public double CalculateScore(IMLMethod phenotype)
         {
-            double result = 0.0;
-            FourBitCustomGenome genome = (FourBitCustomGenome)phenotype;
-            FourBitGene [] genomeData = ((FourBitCustomGenome)genome).Data;
+            try
+            {
+                FourBitCustomGenome genome = (FourBitCustomGenome)phenotype;
+                FourBitGene [] genomeData = ((FourBitCustomGenome)genome).Data;
+                //double maxPossiblePower = PowerUnits.Sum(x => x.UnitCapacity);
 
-            //for (int i = 0; i < IntervalData.Count; i++)
-            //{
-            //    IntervalsFitnessData interval = IntervalData[i];
-            //    for (int j = 0; i < genomeData.Length; j++)
-            //    {
-            //        PowerUnit powerUnit = PowerUnits[j];
-            //        FourBitGene fourBitGene = genomeData[j];
-            //        int geneBit = fourBitGene.Gene[interval.IntervalId - 1];
-            //    }
-            //}
+                for (int i = 0; i < IntervalData.Count; i++)
+                {
+                    IntervalsFitnessData interval = IntervalData[i];
+                    //interval.MaxReserve = maxPossiblePower;
+                    for (int j = 0; j < genomeData.Length; j++)
+                    {
+                        PowerUnit powerUnit = PowerUnits[j];
+                        FourBitGene fourBitGene = genomeData[j];
+                        int geneBitIndex = i;
+                        var isPowerUnitMaintained = fourBitGene.Gene[geneBitIndex] == 1;
+                        if (isPowerUnitMaintained)
+                        {
+                            interval.ReducedAmountOnMaintainance = interval.ReducedAmountOnMaintainance + (1 * powerUnit.UnitCapacity);
+                        }
+                        else
+                        {
+                            interval.ReducedAmountOnMaintainance = interval.ReducedAmountOnMaintainance + (0 * powerUnit.UnitCapacity);
+                        }
+                    }
 
-           
+                    var totalPowerReductionOnMaintanceAndUsage =
+                        interval.PowerRequirement + interval.ReducedAmountOnMaintainance;
+                    interval.ReserveAfterMaintainance = interval.MaxReserve - totalPowerReductionOnMaintanceAndUsage;
+                    //if (interval.ReserveAfterMaintainance < 0.0)
+                    //{
+                    //    // the chromosome is not suitable for out requirement
+                    //    chromosomeFitness = 0.0;
+                    //}
+                }
 
-            return result;
+                var reserveAfterMaintainanceMin = IntervalData.Min(x => x.ReserveAfterMaintainance);
+                // minimal rerserve after maintainance and usage provides chormosomes fitness
+                var chromosomeFitness = reserveAfterMaintainanceMin > 0.0 ? reserveAfterMaintainanceMin : 0.0;
+                Console.WriteLine("Fitness = " + chromosomeFitness);
+                return chromosomeFitness;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public bool ShouldMinimize
         {
-            get { return true; }
+            get { return false; }
         }
 
         #endregion
@@ -57,7 +88,7 @@ namespace _7_GA_Power_unit_schedulling
         /// <inheritdoc/>
         public bool RequireSingleThreaded
         {
-            get { return false; }
+            get { return true; }
         }
     }
 }

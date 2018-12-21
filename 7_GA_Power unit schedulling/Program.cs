@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Encog.ML.EA.Population;
+using Encog.ML.EA.Train;
 using _7_GA_Power_unit_schedulling.Model;
 using _7_GA_Power_unit_schedulling.ProblemDataRepositories;
 
@@ -13,24 +14,44 @@ namespace _7_GA_Power_unit_schedulling
     {
         static void Main(string[] args)
         {
-            var powerUnitReposioty = new PowerUnitRepository();
+            var powerUnitRepository = new PowerUnitRepository();
+           
             var powerUnitGALogic = new PowerUnitGALogic();
-            var populationSize = 50;
+            var populationSize = 2;
             var crossOverProbabality = 0.9;
             var mutationProbabaity = 0.1;
 
+            const int MaxNumIterationsSameSolution = 25;     // maximum number of iterations which GA could run on a same error rate
+
 
             Display("------------ Load Power Unit Details");
-            var powerUnits = powerUnitReposioty.GetAllPowerUnits();
+            var powerUnits = powerUnitRepository.PowerUnits;
             DisplayPowerUnitData(powerUnits);
 
+            // 1 create initial population
             Display("------------ Create Initial Population");
             var population = powerUnitGALogic.CreateInitialPopulation(populationSize, powerUnits.Count);
 
             // 2 create fitness function
             Display("\n------------ Create Fitness function - sum of total diatance of cities within the chromosome - distance low --> better chromosome");
-            var tspFitness = new TravellingSalesManFitnessScore(cities);
+            double maxPossiblePower = powerUnits.Sum(x => x.UnitCapacity);
+            var intervalFitnessDataRepository = new IntervalFitnessDataRepository(maxPossiblePower);
+            var intervalRawData = intervalFitnessDataRepository.IntervalRawData;
+            var powerUnitMaintainanceFitness = new PowerUnitMaintainanceFitnessFunction(powerUnitRepository.GetAllPowerUnits(), intervalRawData);
 
+            // 3 create GA trainer
+            Display("\n------------ Create GA Trainer for iterations");
+            TrainEA geneticAlgorithm = powerUnitGALogic.CreateGA(powerUnits.Count, population, powerUnitMaintainanceFitness, crossOverProbabality, mutationProbabaity);
+
+            // 4 iterate and create off spring of new solutions
+            Display("\n------------ Run GA for iterations until good solutions found");
+            geneticAlgorithm = powerUnitGALogic.RunGA(geneticAlgorithm, MaxNumIterationsSameSolution);
+
+            // 5 display GA results
+            Display("\n------------ Display Final solution after iterations");
+            powerUnitGALogic.DisplaySolution(geneticAlgorithm, powerUnitRepository.GetAllPowerUnits(), intervalRawData);
+
+            Display("\n------------ Done");
             Console.ReadKey();
         }
 
