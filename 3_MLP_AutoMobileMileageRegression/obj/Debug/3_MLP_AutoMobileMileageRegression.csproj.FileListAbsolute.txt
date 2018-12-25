@@ -2,6 +2,7 @@ D:\PhD\IS - AI - ACBT\EncogCSharpProjects\3_MLP_AutoMobileMileageRegression\bin\
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\3_MLP_AutoMobileMileageRegression\bin\Debug\3_MLP_AutoMobileMileageRegression.exe
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\3_MLP_AutoMobileMileageRegression\bin\Debug\3_MLP_AutoMobileMileageRegression.pdb
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\3_MLP_AutoMobileMileageRegression\bin\Debug\encog-core-cs.dll
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\3_MLP_AutoMobileMileageRegression\obj\Debug\3_MLP_AutoMobileMileageRegression.csprojAssemblyReference.cache
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\3_MLP_AutoMobileMileageRegression\obj\Debug\3_MLP_AutoMobileMileageRegression.csproj.CoreCompileInputs.cache
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\3_MLP_AutoMobileMileageRegression\obj\Debug\3_MLP_AutoMobileMileageRegression.csproj.CopyComplete
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\3_MLP_AutoMobileMileageRegression\obj\Debug\3_MLP_AutoMobileMileageRegression.exe

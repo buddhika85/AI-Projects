@@ -42,7 +42,7 @@ namespace _7_GA_Power_unit_schedulling
             try
             {
                 var geneticAlgorithm = new TrainEA(population, maintainanceFitness);
-                geneticAlgorithm.AddOperation(crossOverProbabality, new SpliceNoRepeat(powerUnitCount / 3));
+                geneticAlgorithm.AddOperation(crossOverProbabality, new Splice(1));
                 geneticAlgorithm.AddOperation(mutationProbabality, new MutateShuffle());
                 return geneticAlgorithm;
             }
@@ -66,25 +66,7 @@ namespace _7_GA_Power_unit_schedulling
                     chromosomeData[powerUnitIndex] = GetRandomGeneForPowerUnit(powerUnitInfo);
                 }
 
-                for (var i = 0; i < randomGenome.Data.Length; i++)
-                {
-                    randomGenome.Data[i] = chromosomeData[i];
-
-                    // display chromosome to user
-                    var geneBitsString = GetGeneBitString(randomGenome.Data[i]);
-                    if (i == 0)
-                    {
-                        Console.Write("[ {0}", geneBitsString);
-                    }
-                    else if (i < chromosomeData.Length - 1)
-                    {
-                        Console.Write(", {0}", geneBitsString);
-                    }
-                    else
-                    {
-                        Console.Write(", {0}]", geneBitsString);
-                    }
-                }
+                DisplayGeneAsString(randomGenome, chromosomeData);
 
                 return randomGenome;
             }
@@ -92,6 +74,29 @@ namespace _7_GA_Power_unit_schedulling
             {
                 Console.WriteLine(e);
                 throw;
+            }
+        }
+
+        public void DisplayGeneAsString(FourBitCustomGenome randomGenome, FourBitGene[] chromosomeData)
+        {
+            for (var i = 0; i < randomGenome.Data.Length; i++)
+            {
+                randomGenome.Data[i] = chromosomeData[i];
+
+                // display chromosome to user
+                var geneBitsString = GetGeneBitString(randomGenome.Data[i]);
+                if (i == 0)
+                {
+                    Console.Write("[ {0}", geneBitsString);
+                }
+                else if (i < chromosomeData.Length - 1)
+                {
+                    Console.Write(", {0}", geneBitsString);
+                }
+                else
+                {
+                    Console.Write(", {0}]", geneBitsString);
+                }
             }
         }
 
@@ -214,7 +219,7 @@ namespace _7_GA_Power_unit_schedulling
             }
         }
 
-        public void DisplaySolution(TrainEA geneticAlgorithm, PowerUnit[] powerUnits, List<IntervalsFitnessData> IntervalData)
+        public void DisplaySolution(TrainEA geneticAlgorithm, PowerUnit[] powerUnits, double maxPossiblePower)
         {
             try
             {
@@ -239,12 +244,13 @@ namespace _7_GA_Power_unit_schedulling
                         Console.Write(", {0}]\n\n", geneBitsString);
                     }
                 }
-                
 
+                var intervalFitnessDataRepository = new IntervalFitnessDataRepository(maxPossiblePower);
+                var intervalRawData = intervalFitnessDataRepository.IntervalRawData;
 
-                for (int i = 0; i < IntervalData.Count; i++)
+                for (int i = 0; i < intervalRawData.Count; i++)
                 {
-                    IntervalsFitnessData interval = IntervalData[i];
+                    IntervalsFitnessData interval = intervalRawData[i];
                     for (int j = 0; j < bestChomosomeGenes.Length; j++)
                     {
                         PowerUnit powerUnit = powerUnits[j];
@@ -271,7 +277,7 @@ namespace _7_GA_Power_unit_schedulling
                     }
                 }
 
-                foreach (var interval in IntervalData)
+                foreach (var interval in intervalRawData)
                 {
                     Console.WriteLine(
                         "Interval Id = {0} , Max Reserve = {1}, Power Requirement = {2} , Reduced on maintainance = {3} , Reserve after Maintainance = {1}",

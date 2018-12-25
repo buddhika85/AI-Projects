@@ -17,7 +17,7 @@ namespace _7_GA_Power_unit_schedulling
             var powerUnitRepository = new PowerUnitRepository();
            
             var powerUnitGALogic = new PowerUnitGALogic();
-            var populationSize = 2;
+            var populationSize = 500;
             var crossOverProbabality = 0.9;
             var mutationProbabaity = 0.1;
 
@@ -35,9 +35,8 @@ namespace _7_GA_Power_unit_schedulling
             // 2 create fitness function
             Display("\n------------ Create Fitness function - sum of total diatance of cities within the chromosome - distance low --> better chromosome");
             double maxPossiblePower = powerUnits.Sum(x => x.UnitCapacity);
-            var intervalFitnessDataRepository = new IntervalFitnessDataRepository(maxPossiblePower);
-            var intervalRawData = intervalFitnessDataRepository.IntervalRawData;
-            var powerUnitMaintainanceFitness = new PowerUnitMaintainanceFitnessFunction(powerUnitRepository.GetAllPowerUnits(), intervalRawData);
+            var numberOfIntervals = new IntervalFitnessDataRepository(maxPossiblePower).GetNumberOfIntervals();
+            var powerUnitMaintainanceFitness = new PowerUnitMaintainanceFitnessFunction(powerUnitRepository.GetAllPowerUnits(), numberOfIntervals, maxPossiblePower);
 
             // 3 create GA trainer
             Display("\n------------ Create GA Trainer for iterations");
@@ -49,7 +48,7 @@ namespace _7_GA_Power_unit_schedulling
 
             // 5 display GA results
             Display("\n------------ Display Final solution after iterations");
-            powerUnitGALogic.DisplaySolution(geneticAlgorithm, powerUnitRepository.GetAllPowerUnits(), intervalRawData);
+            powerUnitGALogic.DisplaySolution(geneticAlgorithm, powerUnitRepository.GetAllPowerUnits(), maxPossiblePower);
 
             Display("\n------------ Done");
             Console.ReadKey();

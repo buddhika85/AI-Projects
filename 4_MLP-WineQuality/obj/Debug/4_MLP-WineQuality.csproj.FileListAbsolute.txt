@@ -2,6 +2,7 @@ D:\PhD\IS - AI - ACBT\EncogCSharpProjects\4_MLP-WineQuality\bin\Debug\4_MLP-Wine
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\4_MLP-WineQuality\bin\Debug\4_MLP-WineQuality.exe
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\4_MLP-WineQuality\bin\Debug\4_MLP-WineQuality.pdb
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\4_MLP-WineQuality\bin\Debug\encog-core-cs.dll
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\4_MLP-WineQuality\obj\Debug\4_MLP-WineQuality.csprojAssemblyReference.cache
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\4_MLP-WineQuality\obj\Debug\4_MLP-WineQuality.csproj.CoreCompileInputs.cache
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\4_MLP-WineQuality\obj\Debug\4_MLP-WineQuality.csproj.CopyComplete
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\4_MLP-WineQuality\obj\Debug\4_MLP-WineQuality.exe

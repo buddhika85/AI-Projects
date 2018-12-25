@@ -1,4 +1,5 @@
-﻿using _7_GA_Power_unit_schedulling.Model;
+﻿using System;
+using _7_GA_Power_unit_schedulling.Model;
 using System.Collections.Generic;
 
 namespace _7_GA_Power_unit_schedulling.ProblemDataRepositories
@@ -6,6 +7,19 @@ namespace _7_GA_Power_unit_schedulling.ProblemDataRepositories
     public class IntervalFitnessDataRepository
     {
         public List<IntervalsFitnessData> IntervalRawData { get; set; }
+
+        public int GetNumberOfIntervals()
+        {
+            try
+            {
+                return IntervalRawData.Count;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
 
         public IntervalFitnessDataRepository(double maxReserve)
         {

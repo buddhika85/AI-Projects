@@ -2,6 +2,7 @@ D:\PhD\IS - AI - ACBT\EncogCSharpProjects\5_GA_TSP\bin\Debug\5_GA_TSP.exe.config
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\5_GA_TSP\bin\Debug\5_GA_TSP.exe
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\5_GA_TSP\bin\Debug\5_GA_TSP.pdb
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\5_GA_TSP\bin\Debug\encog-core-cs.dll
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\5_GA_TSP\obj\Debug\5_GA_TSP.csprojAssemblyReference.cache
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\5_GA_TSP\obj\Debug\5_GA_TSP.csproj.CoreCompileInputs.cache
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\5_GA_TSP\obj\Debug\5_GA_TSP.csproj.CopyComplete
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\5_GA_TSP\obj\Debug\5_GA_TSP.exe

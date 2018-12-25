@@ -2,6 +2,7 @@ D:\PhD\IS - AI - ACBT\EncogCSharpProjects\2_MLP_IrisClassfication\bin\Debug\2_ML
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\2_MLP_IrisClassfication\bin\Debug\2_MLP_IrisClassfication.exe
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\2_MLP_IrisClassfication\bin\Debug\2_MLP_IrisClassfication.pdb
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\2_MLP_IrisClassfication\bin\Debug\encog-core-cs.dll
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\2_MLP_IrisClassfication\obj\Debug\2_MLP_IrisClassfication.csprojAssemblyReference.cache
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\2_MLP_IrisClassfication\obj\Debug\2_MLP_IrisClassfication.csproj.CoreCompileInputs.cache
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\2_MLP_IrisClassfication\obj\Debug\2_MLP_IrisClassfication.csproj.CopyComplete
 D:\PhD\IS - AI - ACBT\EncogCSharpProjects\2_MLP_IrisClassfication\obj\Debug\2_MLP_IrisClassfication.exe

@@ -6,18 +6,22 @@ using Encog.ML;
 using Encog.ML.Prg.Train;
 using Encog.Neural.Networks.Training;
 using _7_GA_Power_unit_schedulling.Model;
+using _7_GA_Power_unit_schedulling.ProblemDataRepositories;
 
 namespace _7_GA_Power_unit_schedulling
 {
     public class PowerUnitMaintainanceFitnessFunction : ICalculateScore
     {
         public PowerUnit[] PowerUnits { get; set; }
-        public List<IntervalsFitnessData> IntervalData { get; set; }
+        public int NumberOfIntervals { get; set; }
+        public double MaxPossiblePower { get; set; }
+        
 
-        public PowerUnitMaintainanceFitnessFunction(PowerUnit[] powerUnits, List<IntervalsFitnessData> intervalRawData)
+        public PowerUnitMaintainanceFitnessFunction(PowerUnit[] powerUnits, int numberOfIntervals, double maxPossiblePower)
         {
             PowerUnits = powerUnits;
-            IntervalData = intervalRawData;
+            NumberOfIntervals = numberOfIntervals;
+            MaxPossiblePower = maxPossiblePower;
         }
 
         #region ICalculateGenomeScore Members
@@ -35,9 +39,14 @@ namespace _7_GA_Power_unit_schedulling
                 FourBitGene [] genomeData = ((FourBitCustomGenome)genome).Data;
                 //double maxPossiblePower = PowerUnits.Sum(x => x.UnitCapacity);
 
-                for (int i = 0; i < IntervalData.Count; i++)
+                new PowerUnitGALogic().DisplayGeneAsString(genome, genomeData);
+
+                var intervalFitnessDataRepository = new IntervalFitnessDataRepository(MaxPossiblePower);
+                var intervalRawData = intervalFitnessDataRepository.IntervalRawData;
+
+                for (int i = 0; i < NumberOfIntervals; i++)
                 {
-                    IntervalsFitnessData interval = IntervalData[i];
+                    IntervalsFitnessData interval = intervalRawData[i];
                     //interval.MaxReserve = maxPossiblePower;
                     for (int j = 0; j < genomeData.Length; j++)
                     {
@@ -65,10 +74,10 @@ namespace _7_GA_Power_unit_schedulling
                     //}
                 }
 
-                var reserveAfterMaintainanceMin = IntervalData.Min(x => x.ReserveAfterMaintainance);
+                var reserveAfterMaintainanceMin = intervalRawData.Min(x => x.ReserveAfterMaintainance);
                 // minimal rerserve after maintainance and usage provides chormosomes fitness
                 var chromosomeFitness = reserveAfterMaintainanceMin > 0.0 ? reserveAfterMaintainanceMin : 0.0;
-                Console.WriteLine("Fitness = " + chromosomeFitness);
+                Console.WriteLine("\tFitness = " + chromosomeFitness);
                 return chromosomeFitness;
             }
             catch (Exception e)
