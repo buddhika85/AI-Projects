@@ -42,8 +42,8 @@ namespace _7_GA_Power_unit_schedulling
             try
             {
                 var geneticAlgorithm = new TrainEA(population, maintainanceFitness);
-                geneticAlgorithm.AddOperation(crossOverProbabality, new Splice(1));
-                geneticAlgorithm.AddOperation(mutationProbabality, new MutateShuffle());
+                geneticAlgorithm.AddOperation(crossOverProbabality, new CustomCrossOver());
+                geneticAlgorithm.AddOperation(mutationProbabality, new CustomMutation());
                 return geneticAlgorithm;
             }
             catch (Exception e)
@@ -280,9 +280,9 @@ namespace _7_GA_Power_unit_schedulling
                 foreach (var interval in intervalRawData)
                 {
                     Console.WriteLine(
-                        "Interval Id = {0} , Max Reserve = {1}, Power Requirement = {2} , Reduced on maintainance = {3} , Reserve after Maintainance = {1}",
-                        interval.IntervalId, interval.PowerRequirement, interval.ReducedAmountOnMaintainance,
-                        interval.ReserveAfterMaintainance);
+                        "Interval Id = {0} , Max Reserve = {1}, Power Requirement = {2} , Reduced on maintainance = {3} , Reserve after Maintainance = {4}",
+                        interval.IntervalId, interval.MaxReserve, interval.PowerRequirement,
+                        interval.ReducedAmountOnMaintainance, interval.ReserveAfterMaintainance);
                 }
             }
             catch (Exception e)

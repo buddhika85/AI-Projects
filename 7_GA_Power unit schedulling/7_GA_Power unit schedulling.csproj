@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EncogExtensions\CustomCrossOver.cs" />
+    <Compile Include="EncogExtensions\CustomMutation.cs" />
     <Compile Include="EncogExtensions\EngineArrayExtension.cs" />
     <Compile Include="EncogExtensions\FourBitChomosomeGenomeFactory.cs" />
     <Compile Include="EncogExtensions\FourBitCustomGenome.cs" />

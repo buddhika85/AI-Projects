@@ -76,8 +76,11 @@ namespace _7_GA_Power_unit_schedulling
 
                 var reserveAfterMaintainanceMin = intervalRawData.Min(x => x.ReserveAfterMaintainance);
                 // minimal rerserve after maintainance and usage provides chormosomes fitness
-                var chromosomeFitness = reserveAfterMaintainanceMin > 0.0 ? reserveAfterMaintainanceMin : 0.0;
-                Console.WriteLine("\tFitness = " + chromosomeFitness);
+                //var chromosomeFitness = reserveAfterMaintainanceMin > 0.0 ? reserveAfterMaintainanceMin : 0.0;
+                var chromosomeFitness = reserveAfterMaintainanceMin;
+                Console.WriteLine("\tFitness = {0} - of {1}, {2}, {3}, {4}", chromosomeFitness,
+                    intervalRawData[0].ReserveAfterMaintainance, intervalRawData[1].ReserveAfterMaintainance,
+                    intervalRawData[2].ReserveAfterMaintainance, intervalRawData[3].ReserveAfterMaintainance);
                 return chromosomeFitness;
             }
             catch (Exception e)
