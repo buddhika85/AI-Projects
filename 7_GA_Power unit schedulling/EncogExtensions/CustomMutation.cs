@@ -24,11 +24,39 @@ namespace _7_GA_Power_unit_schedulling.EncogExtensions
         {
             try
             {
-                FourBitCustomGenome mum = (FourBitCustomGenome)parents[0];
-                FourBitCustomGenome dad = (FourBitCustomGenome)parents[1];
-                FourBitCustomGenome offSping1 = PerformErrorlessSmartCustomMutation(mum);
-                FourBitCustomGenome offSping2 = PerformErrorlessSmartCustomMutation(dad);
-            
+                var powerUnitGAlogic = new PowerUnitGALogic();
+                if (parents?[0] != null && parents[1] != null)
+                {
+                    if (parents[0] != null)
+                    {
+                        FourBitCustomGenome mum = (FourBitCustomGenome)parents[0];
+                        offspring[0] = PerformErrorlessSmartCustomMutation(mum);
+                    }
+                    else
+                    {
+                        //int x = 1;
+                        offspring[0] = powerUnitGAlogic.CreateRandomGenome(7);
+                    }
+
+                    if (parents[1] != null)
+                    {
+                        FourBitCustomGenome dad = (FourBitCustomGenome)parents[1];
+                        offspring[1] = PerformErrorlessSmartCustomMutation(dad);
+                    }
+                    else
+                    {
+                        //int x = 1;
+                        offspring[1] = powerUnitGAlogic.CreateRandomGenome(7);
+                    }
+                }
+                else
+                {
+                    //int x = 1;
+                    offspring[0] = powerUnitGAlogic.CreateRandomGenome(7);
+                    offspring[1] = powerUnitGAlogic.CreateRandomGenome(7);
+                }
+               
+
                 //for (var geneIndex = 0; geneIndex < dad.Size; geneIndex++)
                 //{
                 //    if (geneIndex != mutateIndex1)
@@ -90,14 +118,14 @@ namespace _7_GA_Power_unit_schedulling.EncogExtensions
         {
             try
             {
-                FourBitCustomGenome offSping = new FourBitCustomGenome(parent.Data.Length);
+                FourBitCustomGenome offSpring = new FourBitCustomGenome(parent.Data.Length);
                 var random = new Random();
                 var mutateIndex1 = random.Next(1, parent.Data.Length);        // random number is between 0 and 
                 for (var geneIndex = 0; geneIndex < parent.Size; geneIndex++)
                 {
                     if (geneIndex != mutateIndex1)
                     {
-                        offSping.Data[geneIndex] = parent.Data[geneIndex];
+                        offSpring.Data[geneIndex] = parent.Data[geneIndex];
                     }
                     else
                     {
@@ -109,7 +137,7 @@ namespace _7_GA_Power_unit_schedulling.EncogExtensions
                         {
                             case 0:
                                 {
-                                    offSping.Data[geneIndex] = geneToMutate;
+                                    offSpring.Data[geneIndex] = geneToMutate;
                                     break;
                                 }
                             case 1:
@@ -118,7 +146,7 @@ namespace _7_GA_Power_unit_schedulling.EncogExtensions
                                     int [] mutatedGene = remainder == 0 ? new[] { 0, 0, 0, 1 } :
                                         remainder == 1 ? new[] { 0, 0, 1, 0 } :
                                         remainder == 2 ? new[] { 0, 1, 0, 0 } : new[] { 1, 0, 0, 0 };
-                                    offSping.Data[geneIndex] = new FourBitGene { Gene = mutatedGene };
+                                    offSpring.Data[geneIndex] = new FourBitGene { Gene = mutatedGene };
                                     break;
                                 }
                             case 2:
@@ -126,31 +154,31 @@ namespace _7_GA_Power_unit_schedulling.EncogExtensions
                                     var remainder = randomNumber % 3;        // either zero or one or two
                                     int[] mutatedGene = remainder == 0 ? new[] { 0, 0, 1, 1 } :
                                         remainder == 1 ? new[] { 0, 1, 1, 0 } : new[] { 1, 1, 0, 0 };
-                                    offSping.Data[geneIndex] = new FourBitGene { Gene = mutatedGene };
+                                    offSpring.Data[geneIndex] = new FourBitGene { Gene = mutatedGene };
                                     break;
                                 }
                             case 3:
                                 {
                                     var remainder = randomNumber % 2;        // either zero or one
                                     int[] mutatedGene = remainder == 0 ? new[] { 0, 1, 1, 1 } : new[] { 1, 1, 1, 0 };
-                                    offSping.Data[geneIndex] = new FourBitGene { Gene = mutatedGene };
+                                    offSpring.Data[geneIndex] = new FourBitGene { Gene = mutatedGene };
                                     break;
                                 }
                             case 4:
                                 {
-                                    offSping.Data[geneIndex] = geneToMutate;
+                                    offSpring.Data[geneIndex] = geneToMutate;
                                     break;
                                 }
                             default:
                                 {
-                                    offSping.Data[geneIndex] = geneToMutate;
+                                    offSpring.Data[geneIndex] = geneToMutate;
                                     break;
                                 }
                         }
                     }
                 }
 
-                return offSping;
+                return offSpring;
             }
             catch (Exception e)
             {

@@ -53,7 +53,7 @@ namespace _7_GA_Power_unit_schedulling
             }
         }
 
-        private FourBitCustomGenome CreateRandomGenome(int geneCountPerChromosome)
+        public FourBitCustomGenome CreateRandomGenome(int geneCountPerChromosome)
         {
             try
             {

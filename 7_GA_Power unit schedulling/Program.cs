@@ -19,7 +19,7 @@ namespace _7_GA_Power_unit_schedulling
             var powerUnitGALogic = new PowerUnitGALogic();
             var populationSize = 500;
             var crossOverProbabality = 0.9;
-            var mutationProbabaity = 0.1;
+            var mutationProbabaity = 0.001;
 
             const int MaxNumIterationsSameSolution = 25;     // maximum number of iterations which GA could run on a same error rate
 
