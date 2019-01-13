@@ -1,0 +1,10 @@
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\8_EvolutionaryStrategies\bin\Debug\8_EvolutionaryStrategies.exe.config
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\8_EvolutionaryStrategies\bin\Debug\8_EvolutionaryStrategies.exe
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\8_EvolutionaryStrategies\bin\Debug\8_EvolutionaryStrategies.pdb
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\8_EvolutionaryStrategies\obj\Debug\8_EvolutionaryStrategies.csprojAssemblyReference.cache
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\8_EvolutionaryStrategies\obj\Debug\8_EvolutionaryStrategies.csproj.CoreCompileInputs.cache
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\8_EvolutionaryStrategies\obj\Debug\8_EvolutionaryStrategies.exe
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\8_EvolutionaryStrategies\obj\Debug\8_EvolutionaryStrategies.pdb
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\8_EvolutionaryStrategies\bin\Debug\MathNet.Numerics.dll
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\8_EvolutionaryStrategies\bin\Debug\MathNet.Numerics.xml
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\8_EvolutionaryStrategies\obj\Debug\8_EvolutionaryStrategies.csproj.CopyComplete
