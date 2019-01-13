@@ -205,7 +205,7 @@ namespace _8_EvolutionaryStrategies
     {
         public static int NumberOfParentsMiu = 30;
         public static int NumberOfChildrenLambda = NumberOfParentsMiu * 6;
-        public static int NumberOfGenerationsM = 60;
+        public static int NumberOfGenerationsM = 100;
         public static double OneOverFiveSigmaRuleConstant = 0.85;
         public static double InitialX1 = 0;
         public static double InitialX2 = 8;
