@@ -56,13 +56,27 @@ namespace _8_EvolutionaryStrategies
                 });
             }
 
-            //foreach (var generation in generations)
-            //{
-            //    Console.Write("Generation {0} Best Solution ", generation.Number);
-            //    DisplayChromosome(generation.BastOfGeneration);
-            //}
+            GenerationDetails bestSolutionGeneration = GetBestSolutionOfAllGenerations(generations);
+            Console.WriteLine("\nBest Solution from ES");
+            Console.WriteLine("Best Solution Generation - {0}", bestSolutionGeneration.Number);
+            DisplayChromosome(bestSolutionGeneration.BastOfGeneration);
 
             Console.ReadKey();
+        }
+
+        private static GenerationDetails GetBestSolutionOfAllGenerations(List<GenerationDetails> generations)
+        {
+            try
+            {
+                var bestGeneration = generations.OrderBy(x => x.BastOfGeneration.ObjectiveFunctionResult)
+                    .FirstOrDefault();
+                return bestGeneration;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         private static ArtificialChromosome[] CreateNextGeneration(ArtificialChromosome[] parentPopulation)
@@ -98,7 +112,7 @@ namespace _8_EvolutionaryStrategies
                 // adjust sigma
                 if (oneFifthTracker > Config.NumberOfChildrenLambda / 5)
                 {
-                    // increase sigma
+                    // increase sigma for the next generation 
                     Config.InitialSigmaX1 = Config.InitialSigmaX1 +
                                             Config.OneOverFiveSigmaRuleConstant * Config.InitialSigmaX1;
                     Config.InitialSigmaX2 = Config.InitialSigmaX2 +
@@ -106,7 +120,7 @@ namespace _8_EvolutionaryStrategies
                 }
                 else if (oneFifthTracker < Config.NumberOfChildrenLambda / 5)
                 {
-                    // increase sigma
+                    // increase sigma for the next generation 
                     Config.InitialSigmaX1 = Config.InitialSigmaX1 -
                                             Config.OneOverFiveSigmaRuleConstant * Config.InitialSigmaX1;
                     Config.InitialSigmaX2 = Config.InitialSigmaX2 -
@@ -199,66 +213,5 @@ namespace _8_EvolutionaryStrategies
         {
             DisplayChromosome(solution.X1, solution.MutationSigmaX1, solution.X2, solution.MutationSigmaX2, solution.ObjectiveFunctionResult);
         }
-    }
-
-    public static class Config
-    {
-        public static int NumberOfParentsMiu = 30;
-        public static int NumberOfChildrenLambda = NumberOfParentsMiu * 6;
-        public static int NumberOfGenerationsM = 100;
-        public static double OneOverFiveSigmaRuleConstant = 0.85;
-        public static double InitialX1 = 0;
-        public static double InitialX2 = 8;
-        public static double InitialSigmaX1 = 1.25;
-        public static double InitialSigmaX2 = 1;
-        public static double MinX1 = -5;
-        public static double MaxX1 = 10;
-        public static double MinX2 = 0;
-        public static double MaxX2 = 15;
-    }
-    
-
-    public class BraninRcos
-    {
-        public double BraninRcosObjectiveFunction(double x1, double x2)
-        {
-            try
-            {
-                var result = Math.Pow((x2 - (5.1 / (4 * Math.Pow(Math.PI, 2))) * Math.Pow(x1, 2) + 5 / Math.PI * x1 - 6), 2) + (10 * (1 - 1 / (8 * Math.PI)) * Math.Cos(x1) + 10);
-                return result;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
-    }
-
-    public class RandomDouble
-    {
-        // https://stackoverflow.com/questions/1064901/random-number-between-2-double-numbers
-        public double GetRandomNumber(double minimum, double maximum)
-        {
-            Random random = new Random();
-            return random.NextDouble() * (maximum - minimum) + minimum;
-        }
-    }
-
-    public class ArtificialChromosome
-    {
-        public double X1 { get; set; }
-        public double MutationSigmaX1 { get; set; }
-        public double X2 { get; set; }
-        public double MutationSigmaX2 { get; set; }
-        public double ObjectiveFunctionResult { get; set; }
-
-    }
-
-    public class GenerationDetails
-    {
-        public int Number { get; set; }
-        public ArtificialChromosome BastOfGeneration { get; set; }
-
     }
 }
