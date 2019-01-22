@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7_GA_Power unit schedulling
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8_EvolutionaryStrategies", "8_EvolutionaryStrategies\8_EvolutionaryStrategies.csproj", "{F2C87BE0-9121-4FAA-9557-F555D8DF2357}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "9_ParticleSwarmOptimisation", "9_ParticleSwarmOptimisation\9_ParticleSwarmOptimisation.csproj", "{74EA2EA7-AB69-41BD-88E9-2C1524FD8E04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{F2C87BE0-9121-4FAA-9557-F555D8DF2357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2C87BE0-9121-4FAA-9557-F555D8DF2357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2C87BE0-9121-4FAA-9557-F555D8DF2357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74EA2EA7-AB69-41BD-88E9-2C1524FD8E04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74EA2EA7-AB69-41BD-88E9-2C1524FD8E04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74EA2EA7-AB69-41BD-88E9-2C1524FD8E04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74EA2EA7-AB69-41BD-88E9-2C1524FD8E04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

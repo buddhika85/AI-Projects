@@ -1,0 +1,10 @@
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\9_ParticleSwarmOptimisation\bin\Debug\9_ParticleSwarmOptimisation.exe.config
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\9_ParticleSwarmOptimisation\bin\Debug\9_ParticleSwarmOptimisation.exe
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\9_ParticleSwarmOptimisation\bin\Debug\9_ParticleSwarmOptimisation.pdb
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\9_ParticleSwarmOptimisation\obj\Debug\9_ParticleSwarmOptimisation.csprojAssemblyReference.cache
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\9_ParticleSwarmOptimisation\obj\Debug\9_ParticleSwarmOptimisation.csproj.CoreCompileInputs.cache
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\9_ParticleSwarmOptimisation\obj\Debug\9_ParticleSwarmOptimisation.exe
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\9_ParticleSwarmOptimisation\obj\Debug\9_ParticleSwarmOptimisation.pdb
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\9_ParticleSwarmOptimisation\bin\Debug\MathNet.Numerics.dll
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\9_ParticleSwarmOptimisation\bin\Debug\MathNet.Numerics.xml
+D:\PhD\IS - AI - ACBT\EncogCSharpProjects\9_ParticleSwarmOptimisation\obj\Debug\9_ParticleSwarmOptimisation.csproj.CopyComplete
