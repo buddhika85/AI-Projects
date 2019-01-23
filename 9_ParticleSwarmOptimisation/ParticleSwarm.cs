@@ -119,7 +119,8 @@ namespace _9_ParticleSwarmOptimisation
                                     Particle.GlobalBestPosition = swarm[particleNumber].CurrentPosition;
                                 }
                             }
-                            
+
+                            Config.WInertiaWeight = Config.WInertiaWeight * Config.WDamping;        // with each iteration w values decreases
                         }
                     }
                 }
@@ -136,15 +137,27 @@ namespace _9_ParticleSwarmOptimisation
         {
             try
             {
-                double newVelocityX;
-                double newRandomX;
-                //do
-                //{
-                newVelocityX = CalculateVelocity(currentPositionOfX, currentVelocityOfX, personalBestOfX, globalBestOfX);
-                newRandomX = CalculatePosition(currentPositionOfX, newVelocityX);
-                //} while (newRandomX < min || newRandomX > max);
+                double? newVelocityX = null;
+                double? newRandomX = null;
+                do
+                {
+                    // apply lower bound and upper bound limits of the position value
+                    if (newVelocityX != null && newRandomX > max)
+                    {
+                        // reduce velocity 
+                        currentVelocityOfX = currentVelocityOfX * 0.5;
+                    }
+                    else if (newVelocityX != null && newRandomX < max)
+                    {
+                        // increase velocity 
+                        currentVelocityOfX = currentVelocityOfX * 1.5;
+                    }
 
-                return new[] { newVelocityX, newRandomX };
+                    newVelocityX = CalculateVelocity(currentPositionOfX, currentVelocityOfX, personalBestOfX, globalBestOfX);
+                    newRandomX = CalculatePosition(currentPositionOfX, newVelocityX.Value);
+                } while (newRandomX < min || newRandomX > max);
+
+                return new[] { newVelocityX.Value, newRandomX.Value };
             }
             catch (Exception e)
             {
@@ -193,11 +206,11 @@ namespace _9_ParticleSwarmOptimisation
                 Console.WriteLine("Particles of the swarm\n");
                 foreach (var paritcle in swarm)
                 {
-                    Particle.DisplayParticle(paritcle);
+                    Particle.DisplayParticle(paritcle, false);
                 }
                 Console.WriteLine("Best Particle of the swarm\n");
                 var bestParticle = swarm.OrderBy(x => x.Cost).FirstOrDefault();
-                Particle.DisplayParticle(bestParticle);
+                Particle.DisplayParticle(bestParticle, true);
             }
             catch (Exception e)
             {

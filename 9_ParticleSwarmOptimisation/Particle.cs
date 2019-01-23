@@ -13,10 +13,11 @@ namespace _9_ParticleSwarmOptimisation
         public static double[] GlobalBestPosition = { double.MaxValue, double.MaxValue };       // its a minimisation probelm - and initialy worst possible values are stored
         public static double GlobalBestCost = double.MaxValue;
 
-        public static void DisplayParticle(Particle paritcle)
+        public static void DisplayParticle(Particle paritcle, bool isBest)
         {
             try
             {
+                Console.ForegroundColor = isBest ? ConsoleColor.Green : ConsoleColor.White;
                 var braninRcos = new BraninRcos();
                 Console.WriteLine(
                     "Particle Number = {0}\n x1 = {1}, x2 = {2}, Result = {3} " +
